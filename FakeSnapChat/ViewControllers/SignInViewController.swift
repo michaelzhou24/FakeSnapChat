@@ -11,7 +11,7 @@ import Firebase
 
 
 class SignInViewController: UIViewController {
-
+    
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passWdTextField: UITextField!
     override func viewDidLoad() {
@@ -19,18 +19,20 @@ class SignInViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
     }
-
+    
     @IBAction func loginButton(_ sender: Any) {
+        
         Auth.auth().signIn(withEmail: emailTextField.text!, password: passWdTextField.text!) { (user, error) in
             print("Attempting to sign in..")
             if error != nil {
                 print("Error signing in!")
                 Auth.auth().createUser(withEmail: self.emailTextField.text!, password: self.passWdTextField.text!, completion: { (user, error) in
                     print("Tried to create user!")
-                        if error != nil {
+                    if error != nil {
                         print("We have an error!")
-                        } else {
+                    } else {
                         print("Created user successfully")
+                    Database.database().reference().child("users").child(user!.user.uid).child("email").setValue(user!.user.email!)
                         self.performSegue(withIdentifier: "signInSegue", sender: nil)
                     }
                 })
@@ -45,7 +47,7 @@ class SignInViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    
 }
 

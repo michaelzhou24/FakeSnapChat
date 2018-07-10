@@ -12,6 +12,7 @@
 		12BF974120F0139B003A5510 /* SnapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BF974020F0139B003A5510 /* SnapsViewController.swift */; };
 		12BF974320F0417C003A5510 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BF974220F0417C003A5510 /* PhotoViewController.swift */; };
 		12BF974720F29FFE003A5510 /* SelectUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BF974620F29FFE003A5510 /* SelectUserViewController.swift */; };
+		12BF974920F2BA34003A5510 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BF974820F2BA34003A5510 /* User.swift */; };
 		12FD3A3420ED79C500FB0B55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FD3A3320ED79C500FB0B55 /* AppDelegate.swift */; };
 		12FD3A3620ED79C500FB0B55 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FD3A3520ED79C500FB0B55 /* SignInViewController.swift */; };
 		12FD3A3920ED79C500FB0B55 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12FD3A3720ED79C500FB0B55 /* Main.storyboard */; };
@@ -48,6 +49,7 @@
 		12BF974020F0139B003A5510 /* SnapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapsViewController.swift; sourceTree = "<group>"; };
 		12BF974220F0417C003A5510 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		12BF974620F29FFE003A5510 /* SelectUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectUserViewController.swift; sourceTree = "<group>"; };
+		12BF974820F2BA34003A5510 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		12FD3A3020ED79C500FB0B55 /* FakeSnapChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FakeSnapChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12FD3A3320ED79C500FB0B55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		12FD3A3520ED79C500FB0B55 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +101,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		12BF974A20F2BA59003A5510 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				12FD3A3320ED79C500FB0B55 /* AppDelegate.swift */,
+				12FD3A3520ED79C500FB0B55 /* SignInViewController.swift */,
+				12BF974220F0417C003A5510 /* PhotoViewController.swift */,
+				12BF974020F0139B003A5510 /* SnapsViewController.swift */,
+				12BF974620F29FFE003A5510 /* SelectUserViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		12BF974B20F2BA6F003A5510 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				12BF974820F2BA34003A5510 /* User.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
 		12FD3A2720ED79C500FB0B55 = {
 			isa = PBXGroup;
 			children = (
@@ -124,17 +146,14 @@
 		12FD3A3220ED79C500FB0B55 /* FakeSnapChat */ = {
 			isa = PBXGroup;
 			children = (
-				12B68E6F20F00353004DD4CF /* GoogleService-Info.plist */,
-				12FD3A3320ED79C500FB0B55 /* AppDelegate.swift */,
-				12FD3A3520ED79C500FB0B55 /* SignInViewController.swift */,
-				12BF974220F0417C003A5510 /* PhotoViewController.swift */,
-				12BF974020F0139B003A5510 /* SnapsViewController.swift */,
+				12BF974B20F2BA6F003A5510 /* model */,
+				12BF974A20F2BA59003A5510 /* ViewControllers */,
 				12FD3A3720ED79C500FB0B55 /* Main.storyboard */,
-				12FD3A3D20ED79C600FB0B55 /* Assets.xcassets */,
 				12FD3A3F20ED79C600FB0B55 /* LaunchScreen.storyboard */,
+				12FD3A3D20ED79C600FB0B55 /* Assets.xcassets */,
 				12FD3A4220ED79C600FB0B55 /* Info.plist */,
 				12FD3A3A20ED79C500FB0B55 /* FakeSnapChat.xcdatamodeld */,
-				12BF974620F29FFE003A5510 /* SelectUserViewController.swift */,
+				12B68E6F20F00353004DD4CF /* GoogleService-Info.plist */,
 			);
 			path = FakeSnapChat;
 			sourceTree = "<group>";
@@ -403,6 +422,7 @@
 				12BF974720F29FFE003A5510 /* SelectUserViewController.swift in Sources */,
 				12FD3A3420ED79C500FB0B55 /* AppDelegate.swift in Sources */,
 				12BF974320F0417C003A5510 /* PhotoViewController.swift in Sources */,
+				12BF974920F2BA34003A5510 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
