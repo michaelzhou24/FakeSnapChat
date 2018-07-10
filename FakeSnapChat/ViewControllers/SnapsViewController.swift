@@ -35,6 +35,7 @@ class SnapsViewController: UIViewController, UITableViewDataSource, UITableViewD
             snap.from = (snapshot.value as! NSDictionary)["from"] as! String
             snap.imageURL = (snapshot.value as! NSDictionary)["imageURL"] as! String
             snap.description = (snapshot.value as! NSDictionary)["description"] as! String
+            snap.uuid = (snapshot.value as! NSDictionary)["uuid"] as! String
             snap.key = snapshot.key
             for i in 0...self.snaps.count - 1 {
                 if self.snaps[i].key == snap.key {
@@ -59,18 +60,27 @@ class SnapsViewController: UIViewController, UITableViewDataSource, UITableViewD
         dismiss(animated: true, completion: nil)
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let snap = snaps[indexPath.row]
-        performSegue(withIdentifier: "viewSnapSegue", sender: snap)
+        if snaps.count != 0 {
+            let snap = snaps[indexPath.row]
+            performSegue(withIdentifier: "viewSnapSegue", sender: snap)
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if snaps.count == 0 {
+            return 1;
+        }
         return snaps.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        let snap = snaps[indexPath.row]
-        cell.textLabel?.text = snap.from
+        if snaps.count == 0 {
+            cell.textLabel?.text = "No snaps ☹️"
+        } else  {
+            let snap = snaps[indexPath.row]
+            cell.textLabel?.text = snap.from
+        }
         return cell
     }
     

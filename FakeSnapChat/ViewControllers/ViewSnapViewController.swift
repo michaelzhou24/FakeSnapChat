@@ -26,6 +26,11 @@ class ViewSnapViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         Database.database().reference().child("users").child(Auth.auth().currentUser!.uid).child("snaps").child(snap.key).removeValue()
+        Storage.storage().reference().child("images").child("\(snap.uuid).png").delete { (error) in
+            if error != nil {
+                print("error deleting")
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {

@@ -15,11 +15,14 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var snapImage: UIImageView!
     @IBOutlet weak var imageDescTextBox: UITextField!
+    
     var imagePicker = UIImagePickerController()
+    var uuid = NSUUID().uuidString
     
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.delegate = self
+        nextButton.isEnabled = false
         // Do any additional setup after loading the view.
     }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -27,6 +30,7 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
         snapImage.image = image
         snapImage.backgroundColor = UIColor.clear
         imagePicker.dismiss(animated: true, completion: nil)
+        nextButton.isEnabled = true
         
     }
     override func didReceiveMemoryWarning() {
@@ -38,7 +42,7 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
         print("Tapped next")
         nextButton.isEnabled = false
         let imgData = UIImageJPEGRepresentation(snapImage.image!, 0.1)!
-        let imgRef = Storage.storage().reference().child("images").child("\(NSUUID().uuidString).png")
+        let imgRef = Storage.storage().reference().child("images").child("\(uuid).png")
         imgRef.putData(imgData, metadata: nil) { (metadata, error) in
             print("Attempting to upload..")
             self.nextButton.setTitle("Uploading", for: .normal)
@@ -64,11 +68,14 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
         present(imagePicker, animated: true, completion: nil)
         imagePicker.allowsEditing = false
         imagePicker.sourceType = .savedPhotosAlbum
+        // For using actual camera
+        // imagePicker.sourceType = .camera
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let nextVC = segue.destination as! SelectUserViewController
         nextVC.imageURL = sender as! String
+        nextVC.uuid = uuid
         nextVC.snapDesc = imageDescTextBox.text!
     }
     /*
