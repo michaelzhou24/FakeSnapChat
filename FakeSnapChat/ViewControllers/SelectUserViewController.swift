@@ -12,7 +12,10 @@ import Firebase
 class SelectUserViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
+    var imageURL : String = ""
+    var snapDesc : String = ""
     var users : [User] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -45,8 +48,9 @@ class SelectUserViewController: UIViewController, UITableViewDataSource, UITable
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let user = users[indexPath.row]
-        let snap = ["from" : user.email, "description" : "<description>", "imageURL" : "www.image.com"]
+        let snap = ["from" : user.email, "description" : snapDesc, "imageURL" : imageURL]
         Database.database().reference().child("users").child(user.uid).child("snaps").childByAutoId().setValue(snap)
+        navigationController!.popToRootViewController(animated: true)
     }
 
     /*

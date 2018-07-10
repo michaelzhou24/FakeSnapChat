@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		006391CC3CBA0CF7F854B02F /* Pods_FakeSnapChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 107FB9F3C3DFB28BD29C686D /* Pods_FakeSnapChat.framework */; };
+		126E5B8320F54226008FBF18 /* Snap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126E5B8220F54226008FBF18 /* Snap.swift */; };
+		126E5B8520F55DFF008FBF18 /* ViewSnapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126E5B8420F55DFF008FBF18 /* ViewSnapViewController.swift */; };
 		12B68E7020F00354004DD4CF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 12B68E6F20F00353004DD4CF /* GoogleService-Info.plist */; };
 		12BF974120F0139B003A5510 /* SnapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BF974020F0139B003A5510 /* SnapsViewController.swift */; };
 		12BF974320F0417C003A5510 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BF974220F0417C003A5510 /* PhotoViewController.swift */; };
@@ -45,6 +47,8 @@
 /* Begin PBXFileReference section */
 		05E5D8E4D5A8FE2A609A76DE /* Pods-FakeSnapChatTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FakeSnapChatTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FakeSnapChatTests/Pods-FakeSnapChatTests.release.xcconfig"; sourceTree = "<group>"; };
 		107FB9F3C3DFB28BD29C686D /* Pods_FakeSnapChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FakeSnapChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		126E5B8220F54226008FBF18 /* Snap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snap.swift; sourceTree = "<group>"; };
+		126E5B8420F55DFF008FBF18 /* ViewSnapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSnapViewController.swift; sourceTree = "<group>"; };
 		12B68E6F20F00353004DD4CF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		12BF974020F0139B003A5510 /* SnapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapsViewController.swift; sourceTree = "<group>"; };
 		12BF974220F0417C003A5510 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +113,7 @@
 				12BF974220F0417C003A5510 /* PhotoViewController.swift */,
 				12BF974020F0139B003A5510 /* SnapsViewController.swift */,
 				12BF974620F29FFE003A5510 /* SelectUserViewController.swift */,
+				126E5B8420F55DFF008FBF18 /* ViewSnapViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -117,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				12BF974820F2BA34003A5510 /* User.swift */,
+				126E5B8220F54226008FBF18 /* Snap.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -394,6 +400,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-FakeSnapChat/Pods-FakeSnapChat-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -401,6 +408,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -423,6 +431,8 @@
 				12FD3A3420ED79C500FB0B55 /* AppDelegate.swift in Sources */,
 				12BF974320F0417C003A5510 /* PhotoViewController.swift in Sources */,
 				12BF974920F2BA34003A5510 /* User.swift in Sources */,
+				126E5B8520F55DFF008FBF18 /* ViewSnapViewController.swift in Sources */,
+				126E5B8320F54226008FBF18 /* Snap.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

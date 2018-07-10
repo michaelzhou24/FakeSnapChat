@@ -37,16 +37,24 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
     @IBAction func nextTapped(_ sender: Any) {
         print("Tapped next")
         nextButton.isEnabled = false
-        let imgFolder = Storage.storage().reference().child("images")
         let imgData = UIImageJPEGRepresentation(snapImage.image!, 0.1)!
-        imgFolder.child("\(NSUUID().uuidString).png").putData(imgData, metadata: nil) { (metadata, error) in
+        let imgRef = Storage.storage().reference().child("images").child("\(NSUUID().uuidString).png")
+        imgRef.putData(imgData, metadata: nil) { (metadata, error) in
             print("Attempting to upload..")
             self.nextButton.setTitle("Uploading", for: .normal)
             if error != nil {
                 print("Error!")
             } else {
                 print("Success!")
-                self.performSegue(withIdentifier: "selectUsersSegue", sender: nil)
+                imgRef.downloadURL(completion: { (url, error) in
+                    if error != nil {
+                        print("Error finding URL", error!)
+                    } else {
+                        let imgURL = url?.absoluteString
+                        print(imgURL!)
+                        self.performSegue(withIdentifier: "selectUsersSegue", sender: imgURL)
+                    }
+                })
             }
         }
         
@@ -59,6 +67,9 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let nextVC = segue.destination as! SelectUserViewController
+        nextVC.imageURL = sender as! String
+        nextVC.snapDesc = imageDescTextBox.text!
     }
     /*
     // MARK: - Navigation
